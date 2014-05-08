@@ -22,4 +22,4 @@ The libray is build as a .so dynamic libray (GNU/Linux only).
 Currently, libKNM is only available under GNU/Linux. However, a multi-os version is on the road.
 
 ###### Origin ######
-libKNM has been started some months ago, not as a library but as a collection of class designed to works under GNU/Linux for a big research project: [OCADrone](ocadrone.com).
+libKNM has been started some months ago, not as a library but as a collection of class designed to works under GNU/Linux for a big research project: [OCADrone](http://ocadrone.com).
