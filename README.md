@@ -2,7 +2,7 @@ libKNM
 ======
 
 libKNM is a C++ library, useful for common operations. The two main ideas behind libKNM are:
-- Have a an [easy-to-use][1] C++ library, available anywhere
+- Have a an easy-to-use¹ C++ library, available anywhere
 - Peek only what you need in the library (limit class cross dependencies)
 
 ###### Tools ######
@@ -27,4 +27,4 @@ libKNM has been started some months ago, not as a library but as a collection of
 
 
 
-[1]: [Boost](http://www.boost.org/) is very complete, maybe too much complete.
+1: [Boost](http://www.boost.org/) is very complete, maybe too much complete. Sometimes I prefer to work with something less complete, but also less complexe.
