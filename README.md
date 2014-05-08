@@ -2,8 +2,8 @@ libKNM
 ======
 
 libKNM is a C++ library, useful for common operations. The two main ideas behind libKNM are:
-- Have a complete and easy-to-use C++ library available anywhere
-- Peek only what you need in the library: limit library class cross dependencies
+- Have a an [easy-to-use][1] C++ library, available anywhere
+- Peek only what you need in the library (limit class cross dependencies)
 
 ###### Tools ######
 - Threads, process, mutex and semaphores
@@ -23,3 +23,8 @@ Currently, libKNM is only available under GNU/Linux. However, a multi-os version
 
 ###### Origin ######
 libKNM has been started some months ago, not as a library but as a collection of class designed to works under GNU/Linux for a big research project: [OCADrone](http://ocadrone.com).
+
+
+
+
+[1]: [Boost](http://www.boost.org/) is very complete, maybe too much complete.
