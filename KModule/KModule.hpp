@@ -122,6 +122,20 @@ namespace KNM
 		}
 
 		/**
+		 * Close module handler libray and reset state.
+		 */
+		void 	close()
+		{
+			try
+			{
+				dylib.close();
+			}
+			catch(KError *){}
+			builder_name = "";
+			destroyer_name = "";
+		}
+
+		/**
 		 * Build and return a new module.
 		 */
 		T 		*create()

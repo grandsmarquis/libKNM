@@ -82,6 +82,25 @@ bool 			KFS::chdir(const string &_dir)
 	return(true);
 }
 
+std::list<std::string*>	&KFS::list(const std::string &_dir)
+{
+	DIR 			*cdir;
+	struct dirent 	*dp;
+	std::string 	*name;
+
+	items.clear();
+	cdir = opendir(_dir.c_str());
+	if (cdir)
+	{
+		while ((dp = readdir(cdir)) != NULL)
+		{
+			name = new std::string(dp->d_name);
+			items.push_back(name);
+		}
+	}
+	return items;
+}
+
 /**
  * @param _src Source file to copy
  * @param _dst New file name

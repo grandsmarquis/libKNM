@@ -56,6 +56,7 @@ namespace KNM
 		void 			setOption(const string &, const string &);							/**< Set an option with a value. */
 
 		static string	getopt(int, char **, const string &, const string &_dflt = "");		/**< Get an option from a bytes array table. */
+		static int 		getiopt(int, char **, const string &, int _dflt = 0);				/**< Get an option as integer from a bytes array table. */
 		static bool		isopt(int, char **, const string &);								/**< Check if an option exists in a bytes array table. */
 
 	private:

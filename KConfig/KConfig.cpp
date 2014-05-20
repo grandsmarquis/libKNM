@@ -206,6 +206,17 @@ string 		KConfig::getopt(int ac, char **av, const string &_needle, const string 
 	return(_dflt);
 }
 
+int 		KConfig::getiopt(int ac, char **av, const string &_needle, int _dflt)
+{
+	string 	res;
+
+	res = KConfig::getopt(ac, av, _needle);
+	if (res.length() < 1)
+		return(_dflt);
+	else
+		return(atoi(res.c_str()));
+}
+
 /**
  * @param ac Number of items in av
  * @param av Table of options (a C array)
