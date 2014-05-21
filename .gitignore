@@ -1,0 +1,9 @@
+# Gitignore configuration for libKNM
+
+# Ignore librairies & module
+*.so
+*.o
+*.a
+
+# Ignore 'build' folder
+build/
