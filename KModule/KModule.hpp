@@ -115,7 +115,7 @@ namespace KNM
 
 			if (!destroyer)
 			{
-				destroyer = (T* (*)())dylib.symbol(destroyer_name);
+				destroyer = (T* (*)(T*))dylib.symbol(destroyer_name);
 				if (!destroyer)
 					throw new KError("KModule::init", "unable to find destroying function");
 			}
@@ -166,6 +166,6 @@ namespace KNM
 		string 		builder_name;		/**< Builder (aka. constructor) name. */
 		string 		destroyer_name;		/**< Destroyer (aka. destructor) name. */
 		T 			*(*builder)();		/**< Builder function pointer. */
-		T 			*(*destroyer)();	/**< Destroyer function pointer. */
+		T 			*(*destroyer)(T*);	/**< Destroyer function pointer. */
 	};
 }

@@ -413,6 +413,11 @@ int 				KSocket::receiveFrom(int *_buffer, KSaddr &_addr)
 	return ret;
 }
 
+/*int 				KSocket::receiveFile(const string &_file, size_t _len = 0)
+{
+	return 0;
+}*/
+
 /**
  * @param _buffer Content to send
  * @param _size   Bytes to send
@@ -499,6 +504,11 @@ int 				KSocket::sendTo(int _buffer, KSaddr &_addr)
 	htbuffer = htonl(_buffer);
 	return sendTo(&htbuffer, sizeof(int), _addr);
 }
+
+/*int 				KSocket::sendFile(const string &_file, size_t _len = 0)
+{
+	return 0;
+}*/
 
 void 				KSocket::endpoint()
 {

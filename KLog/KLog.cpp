@@ -93,28 +93,31 @@ void 				KLog::write(const enum KLogLevel level, const string &_data)
 
 	lock();
 	time.refresh();
-	logfile << "[" << time.day() << "/" << time.month() << "/" << time.year();
-	logfile << ", " << time.hour() << ":" << time.min() << ":" << time.sec() << "] ";
-
+	if (logfile.is_open() && logfile.good())
+	{
+		logfile << "[" << time.day() << "/" << time.month() << "/" << time.year();
+		logfile << ", " << time.hour() << ":" << time.min() << ":" << time.sec() << "] ";
+	}
 	switch (level)
 	{
 		case INFO:
-			logfile << "[INFO] ";
+			if (logfile.is_open()){logfile << "[INFO] ";}
 			break;
 		case WARNING:
-			logfile << "[WARNING] ";
+			if (logfile.is_open()){logfile << "[WARNING] ";}
 			break;
 		case ERROR:
-			logfile << "[ERROR] ";
+			if (logfile.is_open()){logfile << "[ERROR] ";}
 			break;
 		case CRITICAL:
-			logfile << "[CRITICAL] ";
+			if (logfile.is_open()){logfile << "[CRITICAL] ";}
 			break;
 		default:
-			logfile << "[?] ";
+			if (logfile.is_open()){logfile << "[?] ";}
 			break;
 	}
 
-	logfile << _data << endl;
+	if (logfile.is_open() && logfile.good())
+		logfile << _data << endl;
 	unlock();
 }
