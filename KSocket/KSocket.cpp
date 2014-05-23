@@ -267,7 +267,10 @@ void 				KSocket::disconnect()
 	shutdown('a');
 	// SHOULD read until an error is raised
 	if (fd != KSOCKET_STATE_CLOSE)
+	{
 		::close(fd);
+		fd = KSOCKET_STATE_CLOSE;
+	}
 }
 
 void 				KSocket::close()
