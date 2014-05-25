@@ -7,3 +7,6 @@
 
 # Ignore 'build' folder
 build/
+
+# Ignore IDS project files
+*.sublime*
