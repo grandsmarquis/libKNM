@@ -10,3 +10,6 @@ build/
 
 # Ignore IDS project files
 *.sublime*
+
+# Ignore Doxygen output
+Documentation/doxygen*
