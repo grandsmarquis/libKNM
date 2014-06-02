@@ -43,6 +43,9 @@ namespace KNM
 	class 		KShm
 	{
 	public:
+		/**
+		 * SHM offset nested enumeriation.
+		 */
 		enum offset {BEGIN, END};
 
 	public:

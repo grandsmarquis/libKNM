@@ -76,12 +76,13 @@ CLIBS				=		-pthread -ldl
 KNMFLAGS 			= 
 INCLUDES			=		$(BUILD)/includes
 
+DOXYFILE 			=		Doxyfile
+DOXYPATH			=		Documentation/doxygen_html
 
 
 
-
-.PHONY: 	all clean fclean re install info
-.SILENT:	all clean fclean re install info
+.PHONY: 	all clean fclean re install doc info
+.SILENT:	all clean fclean re install doc info
 
 $(NAME):
 		@echo "---"
@@ -100,7 +101,10 @@ all:	$(NAME)
 clean: 	
 
 fclean:	clean
+		@echo "[*] Removing build temporary directory"
 		if [ -d $(BUILD) ]; then rm -r $(BUILD); fi
+		@echo "[*] Removing generated documentation"
+		if [ -d $(DOXYPATH) ]; then rm -r $(DOXYPATH); fi
 
 re:		fclean all
 
@@ -114,6 +118,10 @@ install:
 		@echo "Installing libKNM headers in $(HEADERS_INSPATH)/"
 		mkdir -p $(HEADERS_INSPATH)
 		cp $(INCLUDES)/* $(HEADERS_INSPATH)/
+
+doc:
+		@echo "--- Generating libKNM documentation ---"
+		doxygen $(DOXYFILE)
 
 info:
 		@echo "--- Installation configuration ---"

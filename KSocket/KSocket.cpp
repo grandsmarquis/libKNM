@@ -152,7 +152,7 @@ void 				KSocket::setPort(int _port)
 }
 
 /**
- * @param mode Blocking flag
+ * @param _mode Blocking flag
  */
 void 				KSocket::setBlock(bool _mode)
 {

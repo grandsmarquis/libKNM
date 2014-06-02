@@ -47,7 +47,7 @@ namespace KNM
 		/**
 		 * Construct with a libray name.
 		 *
-		 * @param @param _path Module path/name
+		 * @param _path Module path/name
 		 */
 		KModule(const string &_path)
 		{

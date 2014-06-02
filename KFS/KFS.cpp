@@ -68,9 +68,9 @@ const string 	&KFS::pwd()
 }
 
 /**
-* @param _dir Directory to change for
-*/
-bool 			KFS::chdir(const string &_dir)
+ * @param _dir Directory to change for
+ */
+bool 			KFS::chdir(const std::string &_dir)
 {
 	this->retval = ::chdir(_dir.c_str());
 	if (this->retval != 0)
@@ -105,7 +105,7 @@ std::list<std::string*>	&KFS::list(const std::string &_dir)
  * @param _src Source file to copy
  * @param _dst New file name
  */
-bool 			KFS::copy(const string &_src, const string &_dst)
+bool 			KFS::copy(const std::string &_src, const std::string &_dst)
 {
 	int			src;
 	int 		dst;
@@ -163,7 +163,7 @@ bool 			KFS::copy(const string &_src, const string &_dst)
  * @param _src Source file to move
  * @param _dst new file name (and optionnaly path)
  */
-bool			KFS::move(const string &_src, const string &_dst)
+bool			KFS::move(const std::string &_src, const std::string &_dst)
 {
 	this->retval = ::rename(_src.c_str(), _dst.c_str());
 	if (this->retval != 0)
@@ -178,7 +178,7 @@ bool			KFS::move(const string &_src, const string &_dst)
 /**
  * @param _src Filename to remove
  */
-bool			KFS::remove(const string &_src)
+bool			KFS::remove(const std::string &_src)
 {
 	this->retval = ::remove(_src.c_str());
 	if (this->retval != 0)
@@ -193,7 +193,7 @@ bool			KFS::remove(const string &_src)
 /**
  * @param _src Directory name
  */
-bool			KFS::mkdir(const string &_src)
+bool			KFS::mkdir(const std::string &_src)
 {
 	this->retval = ::mkdir(_src.c_str(), S_IRUSR|S_IWUSR|S_IXUSR|S_IRGRP|S_IXGRP);
 	if (this->retval != 0)
@@ -208,7 +208,7 @@ bool			KFS::mkdir(const string &_src)
 /**
  * @param _src File name
  */
-bool		KFS::mkfile(const string &_src)
+bool		KFS::mkfile(const std::string &_src)
 {
 	int 	fd;
 

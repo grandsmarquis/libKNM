@@ -72,7 +72,6 @@ namespace KNM
 
 		/**
 		 * Construct while defining the tree name.
-		 *
 		 * @param _name Tree name
 		 */
 		KTree(const string &_name): name(_name), separator('/'){};
@@ -89,7 +88,6 @@ namespace KNM
 
 		/**
 		 * Sef default leaf value.
-		 *
 		 * @param _data Default data.
 		 */
 		void 			setDefault(const T &_data)
@@ -108,7 +106,6 @@ namespace KNM
 
 		/**
 		 * Rename the tree.
-		 *
 		 * @param _name New tree name.
 		 */
 		void 			rename(const string &_name)
@@ -120,7 +117,6 @@ namespace KNM
 		/**
 		 * Insert a node.
 		 * Path is created if necessary.
-		 *
 		 * @param _path New node path and name.
 		 */
 		void 			mknode(const string &_path)
@@ -132,7 +128,6 @@ namespace KNM
 		/**
 		 * Insert a leaf.
 		 * Path is created if necessary; If the leaf already exists, nothing is performed.
-		 *
 		 * @param _path New leaf path and name.
 		 */
 		void 			insert(const string &_path)
@@ -151,7 +146,6 @@ namespace KNM
 		/**
 		 * Insert a leaf with a data.
 		 * Path is created if necessay; If the leaf already exists, data is updated.
-		 *
 		 * @param _path New leaf path and name.
 		 * @param _data New leaf data.
 		 */
@@ -173,7 +167,6 @@ namespace KNM
 		/**
 		 * Return the specified leaf data.
 		 * Throw a KError is leaf is not found.
-		 *
 		 * @param _path Leaf path and name.
 		 */
 		const T 		&find(const string &_path)
@@ -197,7 +190,6 @@ namespace KNM
 
 		/**
 		 * "Travel" the registry, and build needed nodes.
-		 *
 		 * @param _path Path to follow.
 		 */
 		KTree<T> 		*travel(const string &_path)
@@ -248,7 +240,6 @@ namespace KNM
 
 		/**
 		 * Search for a node in the current path.
-		 *
 		 * @param _name Node name.
 		 */
 		KTree<T> 								*getNode(const string &_name)
@@ -263,7 +254,6 @@ namespace KNM
 
 		/**
 		 * Search for a leaf in the current path.
-		 *
 		 * @param _name Leaf name.
 		 */
 		leaf<T> 								*getLeaf(const string &_name)
@@ -283,11 +273,6 @@ namespace KNM
 		char 				separator;
 		leaf<T> 			leaf_default;
 	};
-}
-
-namespace KNM
-{
-	
 }
 
 #endif

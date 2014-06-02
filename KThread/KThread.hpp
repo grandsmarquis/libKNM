@@ -41,6 +41,10 @@ namespace KNM
 		 * @param args Thread function arguments
 		 */
 		void 	*tmain(void __attribute__((unused))*args) {return NULL;}
+
+		/**
+		 * Default tend function for non-templated KThread instance.
+		 */
 		void 	*tend(){return NULL;}
 	};
 

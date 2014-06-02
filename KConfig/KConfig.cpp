@@ -190,6 +190,7 @@ void 					KConfig::setOption(const string &_key, const string &_value)
  * @param ac Number of items in av
  * @param av Table of options (a C array)
  * @param _needle Option name to found
+ * @param _dflt default value to return
  */
 string 		KConfig::getopt(int ac, char **av, const string &_needle, const string &_dflt)
 {
