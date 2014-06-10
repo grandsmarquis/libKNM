@@ -22,6 +22,8 @@
 #ifndef KTREE_HPP
 #define KTREE_HPP
 
+#include <iostream>
+
 #include <string>
 #include <list>
 #include <KError.hh>
@@ -138,6 +140,7 @@ namespace KNM
 
 			found = _path.find_last_of(separator);
 			root = travel(_path.substr(0,found));
+			if (!root){root = this;}
 			key  = root->getLeaf(_path.substr(found+1));
 			if (!key)
 				root->leafs.push_back(new leaf<T>(_path.substr(found+1)));
@@ -157,6 +160,7 @@ namespace KNM
 
 			found = _path.find_last_of(separator);
 			root = travel(_path.substr(0,found));
+			if (!root){root = this;}
 			key  = root->getLeaf(_path.substr(found+1));
 			if (!key)
 				root->leafs.push_back(new leaf<T>(_path.substr(found+1), _data));
@@ -177,6 +181,7 @@ namespace KNM
 
 			found = _path.find_last_of(separator);
 			root = travel(_path.substr(0,found));
+			if (!root){root = this;}
 			lf = root->getLeaf(_path.substr(found+1));
 			if (!lf)
 				#if !defined KTREE_NO_EXCEPTIONS && !defined LIBKNM_NO_EXCEPTIONS
