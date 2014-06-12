@@ -168,6 +168,20 @@ void 				KSocket::setBlock(bool _mode)
 		#endif
 }
 
+void 				KSocket::setNagle(bool _mode)
+{
+	int 			flag = 1;
+
+	if (_mode)
+		flag = 0;
+	if (setsockopt(fd, IPPROTO_TCP, TCP_NODELAY, (char *)&flag, sizeof(int)) != 0)
+		#if !defined KSOCKET_NO_EXCEPTIONS && !defined LIBKNM_NO_EXCEPTIONS
+			throw(new KError(errno, "KSocket::setNagle()"));
+		#else
+			return;
+		#endif
+}
+
 /**
  * @param _backlog Listen() function backlog
  */
@@ -179,6 +193,11 @@ void 				KSocket::setBacklog(int _backlog)
 KSaddr 				*KSocket::getSaddr()
 {
 	return &addr;
+}
+
+int 				KSocket::getFD()
+{
+	return fd;
 }
 
 void				KSocket::socket()
@@ -425,7 +444,7 @@ int 				KSocket::receiveFrom(int *_buffer, KSaddr &_addr)
  * @param _buffer Content to send
  * @param _size   Bytes to send
  */
-int 				KSocket::send(void *_buffer, int _size)
+int 				KSocket::send(const void *_buffer, int _size)
 {
 	int 			ret;
 
@@ -468,7 +487,7 @@ int 				KSocket::send(int _buffer)
  * @param _size   Bytes to send
  * @param _addr   Send to this addr
  */
-int 				KSocket::sendTo(void *_buffer, int _size, KSaddr &_addr)
+int 				KSocket::sendTo(const void *_buffer, int _size, KSaddr &_addr)
 {
 	int 			ret;
 

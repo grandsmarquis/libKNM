@@ -29,6 +29,7 @@
 #include <sys/socket.h>
 #include <netinet/in.h>
 #include <arpa/inet.h>
+#include <netinet/tcp.h>
 #include <sys/ioctl.h>
 #include <string>
 
@@ -77,9 +78,11 @@ namespace KNM
 		void 		setAddress(const string &);					/**< Set the IP address. */
 		void 		setName(const string &);					/**< Set the IP address or hostname. */
 		void 		setPort(int);								/**< Set the endpoint port number. */
-		void 		setBlock(bool);								/**< true:socket become blockant, false: non-blockant. */
+		void 		setBlock(bool);								/**< true:socket become blockant; false: non-blockant. */
+		void 		setNagle(bool);								/**< true: use Nagle bufferization; false: disable Nagle. */
 		void 		setBacklog(int);							/**< Set listen's backlog. */
 		KSaddr 		*getSaddr();								/**< Give access to the internal KSaddr class. */
+		int 		getFD();									/**< Give access to the internat file descriptor. */
 
 		void 		socket();									/**< Create a socket. */
 		void		bind();										/**< Bind to KSocket::port. */
@@ -99,10 +102,10 @@ namespace KNM
 		int 		receiveFrom(int *, KSaddr &);				/**< Receive an integer. */
 		//int 		receiveFile(const string &, size_t = 0);	/**< Receive a file. */
 
-		int 		send(void *, int);							/**< Send some bytes. */
+		int 		send(const void *, int);					/**< Send some bytes. */
 		int 		send(const string &);						/**< Send a string.   */
 		int 		send(int);									/**< Send an integer. */
-		int 		sendTo(void *, int, KSaddr &);				/**< Send some bytes. */
+		int 		sendTo(const void *, int, KSaddr &);		/**< Send some bytes. */
 		int 		sendTo(const string &, KSaddr &);			/**< Send a string.   */
 		int 		sendTo(int, KSaddr &);						/**< Send an integer. */
 		//int 		sendFile(const string &, size_t = 0);		/**< Send a file. */
