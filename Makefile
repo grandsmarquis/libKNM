@@ -108,7 +108,7 @@ fclean:	clean
 
 re:		fclean all
 
-install:
+install:	all
 		@echo "Installing libKNM in $(DYNALIB_INSPATH)"
 		mkdir -p $(DYNALIB_INSPATH)
 		cp $(BUILD)/$(RLNAME) $(DYNALIB_INSPATH)
